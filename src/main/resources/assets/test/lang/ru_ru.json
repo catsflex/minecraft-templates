@@ -1,0 +1,8 @@
+{
+  "config.title": "Настройки Test",
+  "config.category.general": "Основные настройки",
+  "config.option.enabled.name": "Включён",
+  "config.option.enabled.desc": "Активирует работу мода",
+  "config.option.debug.name": "Режим отладки",
+  "config.option.debug.desc": "Отображает полезную информацию в меню отладки F3"
+}
