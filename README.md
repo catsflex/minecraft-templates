@@ -6,9 +6,9 @@ My personal collection of templates for Minecraft modding.
 
 Templates are stored on each own branches
 
-| Branch | Minecraft | Loader | Description |
-| :---: | :---: | :---: | :---: |
-| [`1.21-fabric-client`](../../tree/1.21-fabric-client) | 1.21.x | Fabric _(client-side)_ | Client-side base with GSON/NIO config and [YACL](https://modrinth.com/mod/yacl) support. |
+| Branch | Minecraft | Loader |
+| :---: | :---: | :---: |
+| [`1.21-fabric-client`](../../tree/1.21-fabric-client) | 1.21.x | Fabric _(client-side)_ |
 
 ## How to Use
 
