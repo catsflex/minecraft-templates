@@ -11,12 +11,12 @@ import java.nio.file.Path;
 public class TestConfig {
 	
 	// Default values
-	public static final boolean DEF_ENABLED = true;
-	public static final boolean DEF_DEBUG_MODE = false;
+	public static final boolean DEF_IS_ENABLED = true;
+	public static final boolean DEF_IS_DEBUG_MODE = false;
 	
 	// Current values
-	public boolean enabled = DEF_ENABLED;
-	public boolean debugMode = DEF_DEBUG_MODE;
+	public boolean isEnabled = DEF_IS_ENABLED;
+	public boolean isDebugMode = DEF_IS_DEBUG_MODE;
 	
 	// Config saving stuff
 	private static final Gson _GSON = new GsonBuilder().setPrettyPrinting().create();

@@ -22,7 +22,7 @@ public class YACLIntegration {
 				.option(Option.<Boolean>createBuilder()
 					.name(Component.translatable("config.option.enabled.name"))
 					.description(OptionDescription.of(Component.translatable("config.option.enabled.desc")))
-					.binding(TestConfig.DEF_ENABLED, () -> config.enabled, v -> config.enabled = v)
+					.binding(TestConfig.DEF_IS_ENABLED, () -> config.isEnabled, v -> config.isEnabled = v)
 					.controller(TickBoxControllerBuilder::create)
 					.build())
 				
@@ -30,7 +30,7 @@ public class YACLIntegration {
 				.option(Option.<Boolean>createBuilder()
 					.name(Component.translatable("config.option.debug.name"))
 					.description(OptionDescription.of(Component.translatable("config.option.debug.desc")))
-					.binding(TestConfig.DEF_DEBUG_MODE, () -> config.debugMode, v -> config.debugMode = v)
+					.binding(TestConfig.DEF_IS_DEBUG_MODE, () -> config.isDebugMode, v -> config.isDebugMode = v)
 					.controller(TickBoxControllerBuilder::create)
 					.build())
 				
