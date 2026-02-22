@@ -1,13 +1,13 @@
 plugins {
-    id 'fabric-loom' version '1.15-SNAPSHOT'
+    id 'fabric-loom' version "${fabric_loom_version}"
 }
 
+def javaVersion = 21
 version = project.mod_version
 group = project.maven_group
 
-base {
-    // jar name: <mod name>-<mc ver>-<mod ver>; e.g. test-1.21-1.0.0.jar
-    archivesName = "${project.archives_base_name}-${project.minecraft_version}"
+remapJar {
+    archiveFileName = "${project.mod_id}-${project.mod_version}+mc${project.minecraft_version}-fabric.jar"
 }
 
 repositories {
@@ -18,7 +18,7 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
     modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
@@ -31,8 +31,6 @@ processResources {
         expand properties as Map<String, ?>
     }
 }
-
-def javaVersion = 21
 
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"

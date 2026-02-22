@@ -1,49 +1,35 @@
-# Fabric Mod Template for 1.21.x (Client-side)
+# Fabric Mod Template for 1.21.11 (Client-side)
 
 This is a lightweight template for creating **client-side Fabric** mods.
 
 ## Checklist
 
-Before starting work on your project, make sure to follow the checklist below:
+Before starting work on your project, make sure to look through the files/directories below:
 
-- [ ] `gradle.properties`
-    - [ ] Change `maven_group`
-    - [ ] Change `archives_base_name`
+- `gradle.properties`
 
 
-- [ ] `test.mixins.json`
-    - [ ] Change `package`
-    - [ ] Rename the file itself
+- `src/main/java/me/catsflex/test`
+    - Rename packages
 
 
-- [ ] `fabric.mod.json`
-    - [ ] Change `id`
-    - [ ] Change `name`
-    - [ ] Add `description`
-    - [ ] Change `authors`
-    - [ ] Add `contact`
-    - [ ] Change `icon`
-    - [ ] Change `entrypoints`
-    - [ ] Change `mixins`
+- `src/main/resources/assets/test`
+    - Rename directories
+    - Change icon
+    - Change translations
 
 
-- [ ] `src/main/java`
-    - [ ] Rename packages
+- `test.mixins.json`
+    - Rename the file itself
 
 
-- [ ] `src/main/resources`
-    - [ ] Rename directories
-    - [ ] Change icon
-    - [ ] Change translations
+- `TestConfig.java`
+    - Rename class & file itself
 
 
-- [ ] `TestConfig.java`
-    - [ ] Rename the file itself
+- `YACLIntegration.java`
+    - Rename `TestConfig` class occurrences
 
 
-- [ ] `YACLIntegration.java`
-    - [ ] Rename `TestConfig` class occurrences
-
-
-- [ ] `Helper.java`
-    - [ ] Rename the file itself
+- `Helper.java`
+    - Change mod ID
