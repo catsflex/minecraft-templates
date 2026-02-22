@@ -25,9 +25,11 @@ dependencies {
 }
 
 processResources {
-    var properties = project.properties.clone()
+    def properties = project.properties.findAll {
+        it.key instanceof String
+    }
 
-    filesMatching("fabric.mod.json") {
+    filesMatching(["fabric.mod.json", "*.mixins.json"]) {
         expand properties as Map<String, ?>
     }
 }
