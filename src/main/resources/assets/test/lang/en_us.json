@@ -1,8 +1,8 @@
 {
-  "config.title": "Test Settings",
-  "config.category.general": "General Settings",
-  "config.option.enabled.name": "Enabled",
-  "config.option.enabled.desc": "Toggles the mod",
-  "config.option.debug.name": "Debug mode",
-  "config.option.debug.desc": "Shows useful information in F3 debug menu"
+  "config.test.title": "Test Settings",
+  "config.test.category.general": "General Settings",
+  "config.test.option.enabled.name": "Enabled",
+  "config.test.option.enabled.desc": "Toggles the mod",
+  "config.test.option.debug.name": "Debug mode",
+  "config.test.option.debug.desc": "Shows useful information in F3 debug menu"
 }
