@@ -16,19 +16,7 @@ Before starting work on your project, make sure to look through the files/direct
 - `src/main/resources/assets/test`
     - Rename directories
     - Change icon
-    - Change translations
-
-
-- `test.mixins.json`
-    - Rename the file itself
-
-
-- `TestConfig.java`
-    - Rename class & file itself
-
-
-- `YACLIntegration.java`
-    - Rename `TestConfig` class occurrences
+    - Change translations & translation keys
 
 
 - `Helper.java`

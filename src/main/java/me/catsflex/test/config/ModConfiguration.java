@@ -8,7 +8,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class TestConfig {
+public class ModConfiguration {
 	
 	// Default values
 	public static final boolean DEF_IS_ENABLED = true;
@@ -22,19 +22,19 @@ public class TestConfig {
 	private static final Gson _GSON = new GsonBuilder().setPrettyPrinting().create();
 	private static final Path _CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve(Helper.CONFIG_NAME);
 	
-	private static TestConfig _instance;
+	private static ModConfiguration _instance;
 	
-	public static TestConfig getInstance() {
+	public static ModConfiguration getInstance() {
 		if (_instance == null) {
 			_instance = load();
 		}
 		return _instance;
 	}
 	
-	public static TestConfig load() {
+	public static ModConfiguration load() {
 		if (Files.exists(_CONFIG_PATH)) {
 			try (var reader = Files.newBufferedReader(_CONFIG_PATH)) {
-				var loaded = _GSON.fromJson(reader, TestConfig.class);
+				var loaded = _GSON.fromJson(reader, ModConfiguration.class);
 				if (loaded != null) {
 					return loaded;
 				}
@@ -42,7 +42,7 @@ public class TestConfig {
 				Helper.LOGGER.warn("{} Failed to load config, using defaults!", Helper.MOD_PREFIX, e);
 			}
 		}
-		var config = new TestConfig();
+		var config = new ModConfiguration();
 		config.save();
 		return config;
 	}
