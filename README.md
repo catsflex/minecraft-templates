@@ -10,14 +10,18 @@ Before starting work on your project, make sure to look through the files/direct
 
 
 - `src/main/java/me/catsflex/test`
-    - Rename packages
-
-
-- `src/main/resources/assets/test`
-    - Rename directories
-    - Change icon
-    - Change translations & translation keys
+	- Rename packages
 
 
 - `Helper.java`
-    - Change mod ID
+	- Change mod ID
+
+
+- `src/main/resources/assets/test`
+	- Rename directories
+	- Change icon
+	- Change translations & translation keys
+
+
+- `test.mixins.json`
+	- Rename the file itself
