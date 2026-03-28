@@ -39,7 +39,7 @@ public class ModConfiguration {
 					return loaded;
 				}
 			} catch (Exception e) {
-				Helper.LOGGER.warn("{} Failed to load config, using defaults!", Helper.MOD_PREFIX, e);
+				Helper.LOGGER.warn("Failed to load config, using defaults!", e);
 			}
 		}
 		var config = new ModConfiguration();
@@ -51,7 +51,7 @@ public class ModConfiguration {
 		try (var writer = Files.newBufferedWriter(_CONFIG_PATH)) {
 			_GSON.toJson(this, writer);
 		} catch (Exception e) {
-			Helper.LOGGER.warn("{} Failed to save config!", Helper.MOD_PREFIX, e);
+			Helper.LOGGER.warn("Failed to save config!", e);
 		}
 	}
 }
