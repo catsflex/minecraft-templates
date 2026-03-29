@@ -13,14 +13,19 @@ Before starting work on your project, make sure to look through the files/direct
 	- Rename packages
 
 
-- `Helper.java`
+- `TestMod.java`
 	- Change mod ID
+	- Rename the file itself
 
 
 - `src/main/resources/assets/test`
 	- Rename directories
 	- Change icon
 	- Change translations & translation keys
+
+
+- `fabric.mod.json`
+	- Change `main` entrypoint
 
 
 - `test.mixins.json`
