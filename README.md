@@ -18,6 +18,10 @@ Before starting work on your project, make sure to look through the files/direct
 	- Rename the file itself
 
 
+- `TestModClient.java`
+	- Rename the file itself
+
+
 - `src/main/resources/assets/test`
 	- Rename directories
 	- Change icon
@@ -26,6 +30,7 @@ Before starting work on your project, make sure to look through the files/direct
 
 - `fabric.mod.json`
 	- Change `main` entrypoint
+	- Change `client` entrypoint
 
 
 - `test.mixins.json`

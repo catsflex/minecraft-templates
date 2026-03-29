@@ -19,6 +19,9 @@
 		"main": [
 			"me.catsflex.${mod_id}.TestMod"
 		],
+		"client": [
+			"me.catsflex.${mod_id}.client.TestModClient"
+		],
 		"modmenu": [
 			"me.catsflex.${mod_id}.config.ModMenuIntegration"
 		]
