@@ -11,12 +11,10 @@ import java.nio.file.Path;
 public class ModConfiguration {
 	
 	// Default values
-	public static final boolean DEF_IS_ENABLED = true;
-	public static final boolean DEF_IS_DEBUG_MODE = false;
+	public static final boolean DEFAULT_IS_ENABLED = true;
 	
 	// Current values
-	public boolean isEnabled = DEF_IS_ENABLED;
-	public boolean isDebugMode = DEF_IS_DEBUG_MODE;
+	public boolean isEnabled = DEFAULT_IS_ENABLED;
 	
 	// Config saving stuff
 	private static final Gson _GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -43,6 +41,7 @@ public class ModConfiguration {
 				TestMod.LOGGER.warn("Failed to load config, using defaults!", e);
 			}
 		}
+		
 		var config = new ModConfiguration();
 		config.save();
 		return config;

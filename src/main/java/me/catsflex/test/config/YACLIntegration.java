@@ -22,15 +22,7 @@ public class YACLIntegration {
 				.option(Option.<Boolean>createBuilder()
 					.name(Component.translatable("config.test.option.enabled.name"))
 					.description(OptionDescription.of(Component.translatable("config.test.option.enabled.description")))
-					.binding(ModConfiguration.DEF_IS_ENABLED, () -> config.isEnabled, v -> config.isEnabled = v)
-					.controller(TickBoxControllerBuilder::create)
-					.build())
-				
-				// 'Debug mode' option
-				.option(Option.<Boolean>createBuilder()
-					.name(Component.translatable("config.test.option.debug.name"))
-					.description(OptionDescription.of(Component.translatable("config.test.option.debug.description")))
-					.binding(ModConfiguration.DEF_IS_DEBUG_MODE, () -> config.isDebugMode, v -> config.isDebugMode = v)
+					.binding(ModConfiguration.DEFAULT_IS_ENABLED, () -> config.isEnabled, v -> config.isEnabled = v)
 					.controller(TickBoxControllerBuilder::create)
 					.build())
 				
