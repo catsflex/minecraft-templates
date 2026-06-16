@@ -2,7 +2,6 @@ package me.catsflex.test.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dev.isxander.yacl3.config.v2.impl.serializer.GsonConfigSerializer;
 import me.catsflex.test.TestMod;
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -21,7 +20,7 @@ public class ModConfiguration {
 	// Config saving stuff.
 	// Registering a color adapter is mandatory, as the mod glitches out otherwise while interacting with colors.
 	private static final Gson _GSON = new GsonBuilder()
-		.registerTypeAdapter(Color.class, new GsonConfigSerializer.ColorTypeAdapter())
+		.registerTypeAdapter(Color.class, new ColorAdapter())
 		.setPrettyPrinting().create();
 	private static final String _CONFIG_NAME = TestMod.MOD_ID + ".json";
 	private static final Path _CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve(_CONFIG_NAME);
@@ -35,11 +34,22 @@ public class ModConfiguration {
 		return _instance;
 	}
 	
+	private void validate() {
+		boolean shouldSave = false;
+		
+		// Validating logic.
+		
+		if (shouldSave) {
+			save();
+		}
+	}
+	
 	public static ModConfiguration load() {
 		if (Files.exists(_CONFIG_PATH)) {
 			try (var reader = Files.newBufferedReader(_CONFIG_PATH)) {
 				var loaded = _GSON.fromJson(reader, ModConfiguration.class);
 				if (loaded != null) {
+					loaded.validate();
 					return loaded;
 				}
 			} catch (Exception e) {
