@@ -2,7 +2,7 @@ package me.catsflex.test.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import me.catsflex.test.TestMod;
+import me.catsflex.test.Main;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.awt.*;
@@ -22,7 +22,7 @@ public class ModConfiguration {
 	private static final Gson _GSON = new GsonBuilder()
 		.registerTypeAdapter(Color.class, new ColorAdapter())
 		.setPrettyPrinting().create();
-	private static final String _CONFIG_NAME = TestMod.MOD_ID + ".json";
+	private static final String _CONFIG_NAME = Main.MOD_ID + ".json";
 	private static final Path _CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve(_CONFIG_NAME);
 	
 	private static ModConfiguration _instance;
@@ -53,7 +53,7 @@ public class ModConfiguration {
 					return loaded;
 				}
 			} catch (Exception e) {
-				TestMod.LOGGER.warn("Failed to load config, using defaults!", e);
+				Main.LOGGER.warn("Failed to load config, using defaults!", e);
 			}
 		}
 		
@@ -66,7 +66,7 @@ public class ModConfiguration {
 		try (var writer = Files.newBufferedWriter(_CONFIG_PATH)) {
 			_GSON.toJson(this, writer);
 		} catch (Exception e) {
-			TestMod.LOGGER.warn("Failed to save config!", e);
+			Main.LOGGER.warn("Failed to save config!", e);
 		}
 	}
 }

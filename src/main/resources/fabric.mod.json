@@ -17,7 +17,7 @@
 	"environment": "client",
 	"entrypoints": {
 		"main": [
-			"me.catsflex.${mod_id}.TestMod"
+			"me.catsflex.${mod_id}.Main"
 		],
 		"modmenu": [
 			"me.catsflex.${mod_id}.config.ModMenuIntegration"
