@@ -17,11 +17,15 @@ Before starting work on your project, make sure to look through the files/direct
 	- Change mod ID
 
 
-- `src/main/resources/assets/test`
+- `src/main/resources/assets/test-mod-id`
 	- Rename directories
 	- Change icon
 	- Change translations & translation keys
 
 
-- `test.mixins.json`
+- `YACLIntegration.java`
+	- Change translation keys
+
+
+- `test-mod-id.mixins.json`
 	- Rename the file itself
