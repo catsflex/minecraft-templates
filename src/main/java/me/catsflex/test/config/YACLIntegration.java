@@ -13,15 +13,15 @@ public class YACLIntegration {
 		var config = ModConfiguration.getInstance();
 		
 		return YetAnotherConfigLib.createBuilder()
-			.title(Component.translatable("config.test.title"))
+			.title(Component.translatable("config.test-mod-id.title"))
 			
 			// 'General' category
-			.category(ConfigCategory.createBuilder().name(Component.translatable("config.test.category.general"))
+			.category(ConfigCategory.createBuilder().name(Component.translatable("config.test-mod-id.category.general"))
 				
 				// 'Enabled' option
 				.option(Option.<Boolean>createBuilder()
-					.name(Component.translatable("config.test.option.enabled.name"))
-					.description(OptionDescription.of(Component.translatable("config.test.option.enabled.description")))
+					.name(Component.translatable("config.test-mod-id.option.enabled.name"))
+					.description(OptionDescription.of(Component.translatable("config.test-mod-id.option.enabled.description")))
 					.binding(ModConfiguration.DEFAULT_IS_ENABLED, () -> config.isEnabled, v -> config.isEnabled = v)
 					.controller(TickBoxControllerBuilder::create)
 					.build())

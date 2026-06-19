@@ -1,6 +1,0 @@
-{
-	"config.test.title": "Настройки ${mod_name}",
-	"config.test.category.general": "Основные настройки",
-	"config.test.option.enabled.name": "Включён",
-	"config.test.option.enabled.description": "Включает или выключает все функции мода."
-}
