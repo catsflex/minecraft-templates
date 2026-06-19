@@ -10,7 +10,7 @@ import net.minecraft.network.chat.Component;
 
 public class YACLIntegration {
 	public static Screen createScreen(Screen parent) {
-		var config = ModConfiguration.getInstance();
+		var config = ModConfig.getInstance();
 		
 		return YetAnotherConfigLib.createBuilder()
 			.title(Component.translatable("config.test-mod-id.title"))
@@ -22,7 +22,7 @@ public class YACLIntegration {
 				.option(Option.<Boolean>createBuilder()
 					.name(Component.translatable("config.test-mod-id.option.enabled.name"))
 					.description(OptionDescription.of(Component.translatable("config.test-mod-id.option.enabled.description")))
-					.binding(ModConfiguration.DEFAULT_IS_ENABLED, () -> config.isEnabled, v -> config.isEnabled = v)
+					.binding(ModConfig.DEFAULT_IS_ENABLED, () -> config.isEnabled, v -> config.isEnabled = v)
 					.controller(TickBoxControllerBuilder::create)
 					.build())
 				

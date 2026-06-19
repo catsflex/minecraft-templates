@@ -9,7 +9,7 @@ import java.awt.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class ModConfiguration {
+public class ModConfig {
 	
 	// Default values.
 	public static final boolean DEFAULT_IS_ENABLED = true;
@@ -25,9 +25,9 @@ public class ModConfiguration {
 	private static final String _CONFIG_NAME = Main.MOD_ID + ".json";
 	private static final Path _CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve(_CONFIG_NAME);
 	
-	private static ModConfiguration _instance;
+	private static ModConfig _instance;
 	
-	public static ModConfiguration getInstance() {
+	public static ModConfig getInstance() {
 		if (_instance == null) {
 			_instance = load();
 		}
@@ -35,19 +35,17 @@ public class ModConfiguration {
 	}
 	
 	private void validate() {
-		boolean shouldSave = false;
+		boolean wasModified = ConfigValidator.validate(this);
+		if (!wasModified) return;
 		
-		// Validating logic.
-		
-		if (shouldSave) {
-			save();
-		}
+		save();
+		Main.LOGGER.info("Fixed invalid values in config!");
 	}
 	
-	public static ModConfiguration load() {
+	public static ModConfig load() {
 		if (Files.exists(_CONFIG_PATH)) {
 			try (var reader = Files.newBufferedReader(_CONFIG_PATH)) {
-				var loaded = _GSON.fromJson(reader, ModConfiguration.class);
+				var loaded = _GSON.fromJson(reader, ModConfig.class);
 				if (loaded != null) {
 					loaded.validate();
 					return loaded;
@@ -57,7 +55,7 @@ public class ModConfiguration {
 			}
 		}
 		
-		var config = new ModConfiguration();
+		var config = new ModConfig();
 		config.save();
 		return config;
 	}
