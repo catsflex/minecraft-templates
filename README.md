@@ -17,7 +17,7 @@ Before starting work on your project, make sure to look through the files/direct
 	- Change mod ID
 
 
-- `src/main/resources/assets/test-mod-id`
+- `src/main/resources/assets/test`
 	- Rename directories
 	- Change icon
 	- Change translations & translation keys
