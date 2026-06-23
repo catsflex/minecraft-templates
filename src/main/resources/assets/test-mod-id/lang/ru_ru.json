@@ -1,6 +1,7 @@
 {
 	"config.test-mod-id.title": "Настройки ${mod_name}",
 	"config.test-mod-id.category.general": "Основные настройки",
-	"config.test-mod-id.option.enabled.name": "Включён",
-	"config.test-mod-id.option.enabled.description": "Включает или выключает все функции мода."
+	"config.test-mod-id.group.main": "Основное",
+	"config.test-mod-id.option.isEnabled.name": "Включён",
+	"config.test-mod-id.option.isEnabled.description": "Включает или выключает все функции мода."
 }

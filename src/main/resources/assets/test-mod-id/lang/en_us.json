@@ -1,6 +1,7 @@
 {
 	"config.test-mod-id.title": "${mod_name} Settings",
 	"config.test-mod-id.category.general": "General Settings",
-	"config.test-mod-id.option.enabled.name": "Enabled",
-	"config.test-mod-id.option.enabled.description": "Toggles all mod features."
+	"config.test-mod-id.group.main": "Main",
+	"config.test-mod-id.option.isEnabled.name": "Enabled",
+	"config.test-mod-id.option.isEnabled.description": "Toggles all mod features."
 }

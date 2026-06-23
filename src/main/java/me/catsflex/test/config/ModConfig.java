@@ -2,67 +2,71 @@ package me.catsflex.test.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import me.catsflex.test.Main;
+import me.catsflex.test.config.option.BooleanOption;
+import me.catsflex.test.config.option.ConfigOption;
 import net.fabricmc.loader.api.FabricLoader;
 
-import java.awt.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModConfig {
 	
-	// Default values.
-	public static final boolean DEFAULT_IS_ENABLED = true;
-	
-	// Current values.
-	public boolean isEnabled = DEFAULT_IS_ENABLED;
-	
 	// Config saving stuff.
-	// Registering a color adapter is mandatory, as the mod glitches out otherwise while interacting with colors.
-	private static final Gson _GSON = new GsonBuilder()
-		.registerTypeAdapter(Color.class, new ColorAdapter())
-		.setPrettyPrinting().create();
+	private static final Gson _GSON = new GsonBuilder().setPrettyPrinting().create();
 	private static final String _CONFIG_NAME = Main.MOD_ID + ".json";
 	private static final Path _CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve(_CONFIG_NAME);
+	private static final List<ConfigOption> _ALL_OPTIONS = new ArrayList<>();
+	private static final ModConfig _instance = new ModConfig();
 	
-	private static ModConfig _instance;
+	public final BooleanOption isEnabled = new BooleanOption("isEnabled", true);
+	
+	private ModConfig() {}
 	
 	public static ModConfig getInstance() {
-		if (_instance == null) {
-			_instance = load();
-		}
 		return _instance;
 	}
 	
-	private void validate() {
-		boolean wasModified = ConfigValidator.validate(this);
-		if (!wasModified) return;
-		
-		save();
-		Main.LOGGER.info("Fixed invalid values in config!");
+	public static void registerOption(ConfigOption option) {
+		_ALL_OPTIONS.add(option);
 	}
 	
-	public static ModConfig load() {
-		if (Files.exists(_CONFIG_PATH)) {
-			try (var reader = Files.newBufferedReader(_CONFIG_PATH)) {
-				var loaded = _GSON.fromJson(reader, ModConfig.class);
-				if (loaded != null) {
-					loaded.validate();
-					return loaded;
-				}
-			} catch (Exception e) {
-				Main.LOGGER.warn("Failed to load config, using defaults!", e);
-			}
+	public void load() {
+		if (!Files.exists(_CONFIG_PATH)) {
+			save();
+			return;
 		}
 		
-		var config = new ModConfig();
-		config.save();
-		return config;
+		try (var reader = Files.newBufferedReader(_CONFIG_PATH)) {
+			var element = JsonParser.parseReader(reader);
+			if (!element.isJsonObject()) {
+				throw new IllegalStateException("Config root is not a JSON object!");
+			}
+			
+			var json = element.getAsJsonObject();
+			for (var option : _ALL_OPTIONS) {
+				option.read(json);
+			}
+			
+		} catch (Exception e) {
+			Main.LOGGER.warn("Failed to load config, using defaults!", e);
+			save();
+		}
 	}
 	
 	public void save() {
+		var json = new JsonObject();
+		
+		for (var option : _ALL_OPTIONS) {
+			option.write(json);
+		}
+		
 		try (var writer = Files.newBufferedWriter(_CONFIG_PATH)) {
-			_GSON.toJson(this, writer);
+			_GSON.toJson(json, writer);
 		} catch (Exception e) {
 			Main.LOGGER.warn("Failed to save config!", e);
 		}
