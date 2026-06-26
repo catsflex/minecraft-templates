@@ -2,16 +2,14 @@ package me.catsflex.test.config;
 
 import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.*;
-import me.catsflex.test.config.option.BooleanOption;
-import me.catsflex.test.config.option.ColorOption;
-import me.catsflex.test.config.option.FloatOption;
-import me.catsflex.test.config.option.IntegerOption;
+import me.catsflex.test.config.option.*;
 import net.minecraft.client.gui.components.debug.DebugScreenEntryStatus;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
 import java.awt.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class YACLIntegration {
@@ -58,6 +56,20 @@ public class YACLIntegration {
 			.controller(opt -> FloatSliderControllerBuilder.create(opt)
 				.range(option.getMin(), option.getMax())
 				.step(step)
+			)
+			.build();
+	}
+	
+	private static <T extends Enum<T>> Option<T> createEnumOption(EnumOption<T> option, Function<T, String> formatter) {
+		final var key = ConfigKeyType.OPTION.buildKey(option.getKey());
+		
+		return Option.<T>createBuilder()
+			.name(Component.translatable(key + ".name"))
+			.description(OptionDescription.of(Component.translatable(key + ".description")))
+			.binding(option.getDefault(), option::get, option::set)
+			.controller(opt -> EnumControllerBuilder.create(opt)
+				.enumClass(option.getEnumClass())
+				.formatValue(val -> Component.translatable(key + "." + formatter.apply(val)))
 			)
 			.build();
 	}
