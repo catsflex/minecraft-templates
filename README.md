@@ -23,9 +23,5 @@ Before starting work on your project, make sure to look through the files/direct
 	- Change translations & translation keys
 
 
-- `YACLIntegration.java`
-	- Change translation keys
-
-
 - `test-mod-id.mixins.json`
 	- Rename the file itself
