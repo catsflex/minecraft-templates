@@ -17,10 +17,10 @@
 	"environment": "client",
 	"entrypoints": {
 		"main": [
-			"me.catsflex.${mod_package_id}.Main"
+			"${maven_group}.${mod_package_id}.Main"
 		],
 		"modmenu": [
-			"me.catsflex.${mod_package_id}.config.gui.ModMenuIntegration"
+			"${maven_group}.${mod_package_id}.config.gui.ModMenuIntegration"
 		]
 	},
 	"mixins": [
