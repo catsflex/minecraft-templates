@@ -4,7 +4,7 @@ plugins {
 
 def javaVersion = project.java_version as int
 version = project.mod_version
-group = project.maven_group
+group = project.mod_group
 
 remapJar {
 	archiveFileName.set("${project.mod_id}-v${project.mod_version}+mc${project.minecraft_version}-fabric.jar")
@@ -36,7 +36,7 @@ processResources {
 		"mod_sources_url": project.mod_sources_url,
 		"mod_issues_url": project.mod_issues_url,
 		"mod_license": project.mod_license,
-		"maven_group": project.maven_group,
+		"mod_group": project.mod_group,
 		"java_version": project.java_version,
 		"minecraft_version": project.minecraft_version,
 		"fabric_loader_version": project.fabric_loader_version,

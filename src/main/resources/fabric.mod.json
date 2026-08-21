@@ -17,10 +17,10 @@
 	"environment": "client",
 	"entrypoints": {
 		"main": [
-			"${maven_group}.${mod_package_id}.Main"
+			"${mod_group}.${mod_package_id}.Main"
 		],
 		"modmenu": [
-			"${maven_group}.${mod_package_id}.config.gui.ModMenuIntegration"
+			"${mod_group}.${mod_package_id}.config.gui.ModMenuIntegration"
 		]
 	},
 	"mixins": [
