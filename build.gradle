@@ -22,8 +22,6 @@ dependencies {
 
 processResources {
 	def replaceProperties = [
-		"mod_id": project.mod_id,
-		"mod_package_id": project.mod_package_id,
 		"mod_name": project.mod_name,
 		"mod_description": project.mod_description,
 		"mod_version": project.mod_version,
@@ -32,7 +30,9 @@ processResources {
 		"mod_sources_url": project.mod_sources_url,
 		"mod_issues_url": project.mod_issues_url,
 		"mod_license": project.mod_license,
+		"mod_id": project.mod_id,
 		"mod_group": project.mod_group,
+		"mod_package": project.mod_package,
 		"java_version": project.java_version,
 		"minecraft_version": project.minecraft_version,
 		"fabric_loader_version": project.fabric_loader_version,
