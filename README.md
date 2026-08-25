@@ -1,14 +1,15 @@
 # Minecraft Templates
 
-My personal collection of templates for Minecraft modding.
+My personal collection of templates for Minecraft development.
 
 ## Available Templates
 
-Templates are stored on each own branches
+Templates are stored on each own branches:
 
-| Branch | Minecraft | Loader |
+| Branch | Minecraft | API |
 | :---: | :---: | :---: |
 | [`1.21.11-fabric-client`](../../tree/1.21.11-fabric-client) | 1.21.11 | Fabric _(client-side)_ |
+| [`1.21.11-paper`](../../tree/1.21.11-paper) | 1.21.11 | Paper |
 
 ## How to Use
 
