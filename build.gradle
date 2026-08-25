@@ -1,0 +1,45 @@
+plugins {
+	id "java-library"
+}
+
+jar {
+	archiveFileName.set("${project.plugin_id}-v${project.plugin_version}+mc${project.minecraft_version}-paper.jar")
+}
+
+repositories {
+	maven { url = "https://repo.papermc.io/repository/maven-public/" }
+}
+
+dependencies {
+	compileOnly "io.papermc.paper:paper-api:${project.minecraft_version}-${project.paper_api_version}"
+}
+
+processResources {
+	def replaceProperties = [
+		"plugin_name": project.plugin_name,
+		"plugin_description": project.plugin_description,
+		"plugin_version": project.plugin_version,
+		"plugin_author": project.plugin_author,
+		"plugin_website": project.plugin_website,
+		"plugin_id": project.plugin_id,
+		"plugin_group": project.plugin_group,
+		"plugin_package": project.plugin_package,
+		"java_version": project.java_version,
+		"minecraft_version": project.minecraft_version,
+		"paper_api_version": project.paper_api_version
+	]
+	
+	inputs.properties(replaceProperties)
+	
+	duplicatesStrategy = DuplicatesStrategy.FAIL
+	with copySpec {
+		from("src/main/resources") {
+			include "plugin.yml"
+			expand replaceProperties
+		}
+	}
+}
+
+java {
+	toolchain.languageVersion = JavaLanguageVersion.of(project.java_version)
+}

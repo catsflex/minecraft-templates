@@ -1,0 +1,8 @@
+name: "${plugin_name}"
+description: "${plugin_description}"
+version: "${plugin_version}"
+author: "${plugin_author}"
+website: "${plugin_website}"
+
+main: "${plugin_group}.${plugin_package}.Main"
+api-version: "${minecraft_version}"
