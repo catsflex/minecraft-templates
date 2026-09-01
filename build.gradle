@@ -44,7 +44,7 @@ processResources {
 	
 	inputs.properties(replaceProperties)
 	
-	duplicatesStrategy = DuplicatesStrategy.FAIL
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 	with copySpec {
 		from("src/main/resources") {
 			include "fabric.mod.json"
