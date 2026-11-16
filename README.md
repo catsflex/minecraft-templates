@@ -4,16 +4,16 @@ My personal collection of templates for Minecraft development.
 
 ## Available Templates
 
-Templates are stored on each own branches:
+Each template lives on its own branch.
 
 | Branch | Minecraft | API |
 | :---: | :---: | :---: |
-| [`1.21.11-fabric-client`](../../tree/1.21.11-fabric-client) | 1.21.11 | Fabric _(client-side)_ |
-| [`1.21.11-paper`](../../tree/1.21.11-paper) | 1.21.11 | Paper |
+| [`fabric-client`](../../tree/fabric-client) | 26.3 | Fabric _(client-side)_ |
+| [`paper`](../../tree/paper) | 1.21.11 | Paper |
 
 ## How to Use
 
-To clone a specific branch directly to your machine:
+Clone the latest version of a template:
 ```bash
-git clone -b 1.21.11-fabric-client https://github.com/catsflex/minecraft-templates.git
+git clone -b fabric-client https://github.com/catsflex/minecraft-templates.git
 ```
