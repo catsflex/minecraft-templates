@@ -1,0 +1,11 @@
+{
+	"config.example-mod.title": "Example Mod Settings",
+	"config.example-mod.category.general": "General Settings",
+	
+	"config.example-mod.group.main": "Main",
+	"config.example-mod.option.enabled.name": "Enabled",
+	"config.example-mod.option.enabled.description": "Toggles all mod features.",
+	
+	"config.example-mod.yacl_missing.title": "Example Mod Settings",
+	"config.example-mod.yacl_missing.message": "Install YetAnotherConfigLib (YACL) to edit the settings in game."
+}

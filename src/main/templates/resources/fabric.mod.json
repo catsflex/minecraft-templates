@@ -16,8 +16,8 @@
 	"icon": "assets/${mod_id}/icon.png",
 	"environment": "client",
 	"entrypoints": {
-		"main": [
-			"${mod_group}.${mod_package}.Main"
+		"client": [
+			"${mod_group}.${mod_package}.ExampleModClient"
 		],
 		"modmenu": [
 			"${mod_group}.${mod_package}.config.gui.ModMenuIntegration"
@@ -27,12 +27,13 @@
 		"${mod_id}.mixins.json"
 	],
 	"depends": {
-		"minecraft": ">=${minecraft_version}",
+		"java": ">=${java_version}",
+		"minecraft": "~${minecraft_version}",
 		"fabricloader": ">=${fabric_loader_version}",
 		"fabric-api": ">=${fabric_api_version}"
 	},
 	"suggests": {
 		"modmenu": ">=${modmenu_version}",
-		"yet_another_config_lib": ">=${yacl_version}"
+		"yet_another_config_lib_v3": ">=${yacl_version}"
 	}
 }

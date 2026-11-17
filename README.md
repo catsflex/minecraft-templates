@@ -1,4 +1,4 @@
-# Fabric Mod Template for 1.21.11 (Client-side)
+# Fabric Mod Template for 26.3 (Client-side)
 
 This is a lightweight template for creating **client-side Fabric** mods.
 
@@ -6,22 +6,15 @@ This is a lightweight template for creating **client-side Fabric** mods.
 
 Before starting work on your project, make sure to look through the files/directories below:
 
+- `rename-mod.ps1`
+	- Run it to rename mod ID, name, packages, classes, assets & mixin config:
+	  `powershell -ExecutionPolicy Bypass -File .\rename-mod.ps1 -ModId my-mod -Name "My Mod"`
+
+
 - `gradle.properties`
+	- Fill in description, links & license
 
 
-- `src/main/java/me/catsflex/test`
-	- Rename packages
-
-
-- `Main.java`
-	- Change mod ID
-
-
-- `src/main/resources/assets/test-mod-id`
-	- Rename directories
+- `src/main/resources/assets/example-mod`
 	- Change icon
-	- Change translations & translation keys
-
-
-- `test-mod-id.mixins.json`
-	- Rename the file itself
+	- Change translations

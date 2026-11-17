@@ -1,0 +1,11 @@
+{
+	"config.example-mod.title": "Настройки Example Mod",
+	"config.example-mod.category.general": "Основные настройки",
+	
+	"config.example-mod.group.main": "Главное",
+	"config.example-mod.option.enabled.name": "Включено",
+	"config.example-mod.option.enabled.description": "Включает или выключает все функции мода.",
+	
+	"config.example-mod.yacl_missing.title": "Настройки Example Mod",
+	"config.example-mod.yacl_missing.message": "Установите YetAnotherConfigLib (YACL), чтобы менять настройки в игре."
+}
